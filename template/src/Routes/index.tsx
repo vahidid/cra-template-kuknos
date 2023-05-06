@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { Routes as ReactRouterRoutes, Route } from 'react-router-dom';
+import Loading from '../Components/Loading';
 
 const HomePage = lazy(() => import('../Pages/Home'));
 
@@ -11,17 +12,12 @@ const Routes = [
 ];
 
 function AppRoutes() {
-	// TODO: add loading for lazy loading
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense fallback={<Loading />}>
 			<ReactRouterRoutes>
 				{/* Routes */}
-				{Routes.map((route) => (
-					<Route
-						path={route.path}
-						key={route.path}
-						element={<route.Element />}
-					/>
+				{Routes.map(({ path, Element }) => (
+					<Route path={path} key={path} element={<Element />} />
 				))}
 			</ReactRouterRoutes>
 		</Suspense>
