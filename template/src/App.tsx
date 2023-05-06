@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import createCache from '@emotion/cache';
+import { prefixer } from 'stylis';
+import rtlPlugin from 'stylis-plugin-rtl';
+import { CacheProvider } from '@emotion/react';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { lightTheme } from './Theme';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './Routes';
 
 function App() {
+	// RTL
+	const cacheRtl = createCache({
+		key: 'kuknos-rtl',
+		stylisPlugins: [prefixer, rtlPlugin],
+	});
+
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
-		</div>
+		<BrowserRouter>
+			<CacheProvider value={cacheRtl}>
+				<ThemeProvider theme={lightTheme}>
+					<CssBaseline />
+					<AppRoutes />
+				</ThemeProvider>
+			</CacheProvider>
+		</BrowserRouter>
 	);
 }
 
