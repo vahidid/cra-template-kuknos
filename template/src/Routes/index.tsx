@@ -3,11 +3,16 @@ import { Routes as ReactRouterRoutes, Route } from 'react-router-dom';
 import Loading from '../Components/Loading';
 
 const HomePage = lazy(() => import('../Pages/Home'));
+const ProtectedPage = lazy(() => import('../Pages/Protected'));
 
 const Routes = [
 	{
 		path: '/',
 		Element: HomePage,
+	},
+	{
+		path: '/protected',
+		Element: ProtectedPage,
 	},
 ];
 

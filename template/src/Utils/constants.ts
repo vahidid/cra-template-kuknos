@@ -5,6 +5,8 @@ function getConfigs() {
 	return {
 		ACCESS_TOKEN: `${process.env.REACT_APP_SLUG}_accessToken`,
 		REFRESH_TOKEN: `${process.env.REACT_APP_SLUG}_refreshToken`,
+
+		LOGIN_ROUTE: `/login`,
 	};
 }
 
