@@ -1,0 +1,1 @@
+## Write the JS or TS declaration or type definition
