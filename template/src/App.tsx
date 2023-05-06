@@ -6,6 +6,8 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { lightTheme } from './Theme';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './Routes';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 
 function App() {
 	// RTL
@@ -16,12 +18,14 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<CacheProvider value={cacheRtl}>
-				<ThemeProvider theme={lightTheme}>
-					<CssBaseline />
-					<AppRoutes />
-				</ThemeProvider>
-			</CacheProvider>
+			<Provider store={store}>
+				<CacheProvider value={cacheRtl}>
+					<ThemeProvider theme={lightTheme}>
+						<CssBaseline />
+						<AppRoutes />
+					</ThemeProvider>
+				</CacheProvider>
+			</Provider>
 		</BrowserRouter>
 	);
 }
