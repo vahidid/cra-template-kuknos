@@ -8,3 +8,8 @@ export interface ServiceResponse<T> {
 	data: T;
 	page_count: number;
 }
+
+export interface ServiceError {
+	meta: ServiceResponseMeta;
+	message: string;
+}
