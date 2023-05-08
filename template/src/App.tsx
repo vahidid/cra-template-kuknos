@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './Routes';
 import { Provider } from 'react-redux';
 import store from './Redux/store';
+import './Assets/fonts/fontiran.css';
 
 function App() {
 	// RTL

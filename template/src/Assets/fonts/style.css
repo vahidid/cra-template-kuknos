@@ -1,0 +1,10 @@
+@import url('./fontiran.css');
+
+body {
+	font-family: YekanBakh !important;
+	font-weight: 300;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6,input, textarea {
+	font-family: YekanBakh !important;
+} 
